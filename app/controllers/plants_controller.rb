@@ -12,10 +12,24 @@ class PlantsController < ApplicationController
     render json: plant
   end
 
+  # PATCH /plants/:id
+  def update
+    plant = Plant.find_by(id: params[:id])
+    plant.update(plant_params)
+    render json: plant
+  end
+
   # POST /plants
   def create
     plant = Plant.create(plant_params)
     render json: plant, status: :created
+  end
+
+  # DELETE /plants/:id
+  def destroy
+    plant = Plant.find_by(id: params[:id])
+    plant.destroy
+    head :no_content
   end
 
   private
