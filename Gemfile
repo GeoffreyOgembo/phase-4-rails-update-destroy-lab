@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.7.4"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 
@@ -39,3 +40,9 @@ group :test do
   gem 'rspec-json_expectations'
   gem 'shoulda-matchers', '~> 4.0'
 end
+
+group :production do
+  gem 'pg', '~> 1.4', '>= 1.4.3'
+end
+
+
